@@ -1,0 +1,56 @@
+*{
+    font-family: "Inter", sans-serif;
+}
+
+.login-from{
+    width: 80%;
+ 
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login-from h3{
+    text-align: center;
+    color: rgb(255, 188, 4);
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+ 
+input[type='text'], input[type='password']{
+    padding: 10px;
+}
+
+
+.Login-buttton{
+    width: 9%;
+    padding: 6px;
+    background-color: rgb(24, 236, 5);
+    color: rgb(249, 250, 250);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    
+    
+}
+
+
+
+.registration-buttton{
+    width: 12%;
+    padding: 9px;
+    background-color:rgb(43, 200, 206) ;
+    color: rgb(249, 250, 250);
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    margin: 0 auto;
+}
