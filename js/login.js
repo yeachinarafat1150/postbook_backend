@@ -12,7 +12,7 @@ const handlelogin = async () => {
   };
 
  const userInfo = await fetchUserInfo(user);
- 
+ console.log(userInfo);
  const errorElement =document.getElementById("user-login-error");
 
  //user data did not match with database
@@ -24,7 +24,9 @@ const handlelogin = async () => {
  else{
   errorElement.classList.add("hidden"); 
 
-  
+  //save user infomation
+ localStorage.setItem("loggedInUser" , JSON.stringify(userInfo[0]));
+  window.location.href = "./post.html";
  }
 
 };
