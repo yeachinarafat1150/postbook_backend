@@ -31,3 +31,13 @@ margin: 0 auto;
     color: rgb(158, 158, 158);
     font-size: 11px;
 }
+
+.post-image{
+    display: flex;
+    justify-content: center;
+}
+.post-image img{
+    width: 50%;
+    border-radius: 8px;
+    margin: 15px;
+}
