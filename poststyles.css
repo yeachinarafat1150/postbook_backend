@@ -6,7 +6,17 @@
 width: 90%;
 background-color: antiquewhite;
 margin: 0 auto;
+display: flex;
+justify-content: center;
 
+}
+
+.post{
+    width: 60%;
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 15px;
+    margin: 20px;
 }
 
 .post-header{
@@ -66,4 +76,30 @@ border-radius: 50%;
 
 .comment-text-container h4{
     margin-bottom: 3px;
+}
+
+.postComment-holder{
+    display: flex;
+    gap: 9px;
+    margin: 15px;
+}
+
+.post-comment-input-field-holder{
+    width: 60%;
+}
+
+.postCommen-input-field{
+    padding: 10px;
+    outline: none;
+    border: 1px solid gray;
+    width: 80%;
+}
+
+.postComment-btn{
+    padding: 10px;
+    background-color: rgb(83, 156, 216);
+    color: wheat;
+    border: none;
+    border-radius: 5px;
+
 }
