@@ -24,8 +24,10 @@ const handlelogin = async () => {
  else{
   errorElement.classList.add("hidden"); 
 
-  //save user infomation
+  //save user infomation befor jumping to the next page
  localStorage.setItem("loggedInUser" , JSON.stringify(userInfo[0]));
+
+ //then make a jump to the new page
   window.location.href = "./post.html";
  }
 
