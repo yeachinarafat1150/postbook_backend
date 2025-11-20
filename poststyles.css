@@ -7,6 +7,8 @@ width: 90%;
 background-color: antiquewhite;
 margin: 0 auto;
 display: flex;
+flex-direction: column;
+align-items: center;
 justify-content: center;
 
 }
@@ -66,7 +68,7 @@ border-radius: 50%;
 
 .comment-text-container {
     background-color: rgb(146, 192, 238);
-    padding: 10px;
+    padding: 15px;
     border-radius: 20px;
 }
 
