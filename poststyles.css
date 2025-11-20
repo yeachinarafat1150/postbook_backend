@@ -41,3 +41,29 @@ margin: 0 auto;
     border-radius: 8px;
     margin: 15px;
 }
+
+.comment{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 9px;
+}
+.comment-user-image img{
+width: 40px;
+height: 40px;
+border-radius: 50%;
+}
+
+.comment-text-container {
+    background-color: rgb(146, 192, 238);
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.comment-text-container h4, p {
+    margin: 0;
+}
+
+.comment-text-container h4{
+    margin-bottom: 3px;
+}
