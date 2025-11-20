@@ -2,6 +2,8 @@
     font-family: "Inter", sans-serif;
 }
 
+
+
 .login-from{
     width: 80%;
  
@@ -45,7 +47,7 @@ input[type='text'], input[type='password']{
 
 
 .registration-buttton{
-    width: 12%;
+    width: 10%;
     padding: 9px;
     background-color:rgb(43, 200, 206) ;
     color: rgb(249, 250, 250);
@@ -53,4 +55,19 @@ input[type='text'], input[type='password']{
     border-radius: 10px;
     font-size: 18px;
     margin: 0 auto;
+    display: flex;
+    text-align: center;
+    
+}
+
+.error{
+    color: rgb(255, 0, 0);
+}
+
+.error h4{
+    text-align: center;
+}
+
+.hidden{
+    display: none;
 }

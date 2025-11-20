@@ -10,21 +10,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>welcome to postbook</h1>
+    <h1 class="hed">welcome to postbook</h1>
 
     <div class="login-from">
         <h3>Please Login</h3>
         <form>
-            <input type="text" name="user_name" id="user_id" placeholder="user_id"> 
+            <input type="text" name="user_name" id="user_input_Id" placeholder="user_Id"> 
             <input type="password" id="password" placeholder="password">
             
         </form>
         
-         <button class="Login-buttton">Login</button> 
-         <button class="registration-buttton">registration</button>
+         <button onclick="handlelogin()" class="Login-buttton">Login</button> 
          
-        
-       
     </div>
+
+    <button class="registration-buttton">registration</button>
+
+     <!-- error massage -->
+
+    <div id="user-login-error" class="error hidden">
+    <h4>user name not found or password is wrong! please try Again!</h4>
+    </div>
+           
+
+    <script src="./js/login.js"></script>
 </body>
 </html>
