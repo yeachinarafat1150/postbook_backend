@@ -12,7 +12,7 @@ const handlelogin = async () => {
   };
 
  const userInfo = await fetchUserInfo(user);
- console.log(userInfo);
+ ////console.log(userInfo);
  const errorElement =document.getElementById("user-login-error");
 
  //user data did not match with database
@@ -36,22 +36,19 @@ const handlelogin = async () => {
 const fetchUserInfo = async (user) => {
   let data;
   try {
-    const res = await fetch('http://localhost:5000/getUserInfo' , {
+    const res = await fetch('http://localhost:5000/getUserInfo', {
       method: "POST",
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
     });
 
     data = await res.json();
-
   }
   catch (err) {
     console.log("Error connection to the server: ", err);
-
   }
-
   finally {
     return data;
   }
