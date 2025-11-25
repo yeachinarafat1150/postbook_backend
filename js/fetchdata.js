@@ -1,126 +1,148 @@
-const fatchAllPosts = async () => {
-  let data;
 
+const fetchAllPosts = async () => {
   try {
     const res = await fetch("http://localhost:5000/getAllPosts");
-    data = await res.json();
-    // console.log(data);
+    const data = await res.json();
     showAllPosts(data);
-
-  }
-  catch (err) {
-    console.log("Error fetching data from server")
+  } catch (err) {
+    console.log("Error fetching posts:", err);
   }
 };
 
 const showAllPosts = (allposts) => {
-  const postContainer = document.getElementById('post-container');
+  const postContainer = document.getElementById("post-container");
   postContainer.innerHTML = "";
 
+  allposts.forEach(async (post) => {
+    const postDiv = document.createElement("div");
+    postDiv.classList.add("post");
 
-  allposts.forEach(async (posts) => {
-    // console.log("Full post object:", post);
-    // console.log("Post ID:", posts.postId);
-    const postDiv = document.createElement('div');
-    postDiv.classList.add('post');
+    postDiv.innerHTML = `
+      <div class="post-header">
+        <div class="post-user-image">
+          <img src="${post.postedUserImage}" />
+        </div>
+        <div class="post-user-time">
+          <p class="post-username">${post.postedUserName}</p>
+          <div class="posted-time">
+            <span>${post.postedTime}</span>
+            <span>hours ago</span>
+          </div>
+        </div>
+      </div>
 
-    postDiv.innerHTML = ` 
-            <div class="post-header">
-                <div class="post-user-image">
-                  <img src=${posts.postedUserImage}
-                  />
-                </div>
+      <div class="post-text">
+        <p class="post-text-content">${post.postedText}</p>
+      </div>
 
-                 <div class="post-user-time">
-                  
-                      <p class="post-username">${posts.postedUserName}</p>
-                     <div class="posted-time">
-                     <span>${posts.postedTime}</span>
-                     <span>hours ago</span>
-                   </div>
-                 </div>
-            </div>
-              
-            <div class="post-text">
-                <p class="post-text-content">
-                    ${posts.postedText}
-                </p>
-            </div>
-
-            <div class="post-image">
-              <img src=${posts.postedImageUrl} />
-            </div>
-         
-       
- `;
+      <div class="post-image">
+        <img src="${post.postedImageUrl}" />
+      </div>
+    `;
 
     postContainer.appendChild(postDiv);
 
-    //comments under a post
-    let postComments = await fatchAllCommentsOfPost(posts.postId)
-    console.log("postComments: ", postComments);
+    
+    // LOAD COMMENTS OF THIS POST
+    
+    let postComments = await fetchAllCommentsOfPost(post.postId);
 
-    postComments.forEach(comment => {
-      const commentsHolderDiv = document.createElement('div');
-      commentsHolderDiv.classList.add('comments-holder');
-      commentsHolderDiv.innerHTML =`
-      <div class="comment">
-                <div class="comment-user-image">
-                    <img src=${comment.commentedUserImage}
-                    />
-                </div>
-                <div class="comment-text-container">
-                    <h3>${comment.commentedUserName}</h3>
-                    <p class="comment-text">
-                        ${comment.commentText}
-                    </p>
-                </div>
-            </div>
+    postComments.forEach((comment) => {
+      const commentDiv = document.createElement("div");
+      commentDiv.classList.add("comments-holder");
+
+      commentDiv.innerHTML = `
+        <div class="comment">
+          <div class="comment-user-image">
+            <img src="${comment.commentedUserImage}" />
+          </div>
+          <div class="comment-text-container">
+            <h3>${comment.commentedUserName}</h3>
+            <p class="comment-text">${comment.commentText}</p>
+          </div>
+        </div>
       `;
-      postDiv.appendChild(commentsHolderDiv);
+
+      postDiv.appendChild(commentDiv);
     });
 
-    //adding a new comment to the post
+    
+    // COMMENT INPUT 
+    
+    const inputDiv = document.createElement("div");
+    inputDiv.classList.add("postComment-holder");
 
-    const addNewCommentDiv =document.createElement('div');
-    addNewCommentDiv.classList.add('postComment-holder');
-    addNewCommentDiv.innerHTML=`
-            <div class="post-comment-input-field-holder">
-                 <input type="text" 
-                 placeholder="post your comment" 
-                 class="postCommen-input-field"
-                  id="postComment-input-for-postId1"
-                  />
-                  </div>
-                  <div class="comment-btn-holder">
-                  <button id="comment-btn" class="postComment-btn">
-                    comment
-                </button>
-            </div>
+    inputDiv.innerHTML = `
+      <div class="post-comment-input-field-holder">
+        <input 
+          type="text" 
+          placeholder="post your comment" 
+          class="postComment-input-field"
+          id="comment-input-${post.postId}"
+        />
+      </div>
+      <div class="comment-btn-holder">
+        <button 
+          onClick="handlePostComment(${post.postId})"
+          class="postComment-btn"
+        >
+          comment
+        </button>
+      </div>
     `;
-   
-  postDiv.appendChild(addNewCommentDiv);
 
+    postDiv.appendChild(inputDiv);
   });
 };
 
 
-const fatchAllCommentsOfPost = async (postId) => {
-  let CommentsOfPost = [];
+// POST A NEW COMMENT
+
+const handlePostComment = async (postId) => {
+  let user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (!user) return alert("Login first!");
+
+  const commentedUserId = user.userId;
+  const inputField = document.getElementById(`comment-input-${postId}`);
+  const commentText = inputField.value;
+
+  if (!commentText.trim()) return alert("Write something!");
+
+  let now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  let commentTime = now.toISOString();
+
+  const commentObject = {
+    commentOfPostId: postId,
+    commentedUserId,
+    commentText,
+    commentTime,
+  };
+
   try {
-    const res = await fetch(`http://localhost:5000/getAllComments/${postId}`);
-    CommentsOfPost = await res.json();
+    await fetch("http://localhost:5000/postComment", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(commentObject),
+    });
+  } catch (err) {
+    console.log("Error posting comment:", err);
+  } finally {
+    location.reload();
   }
-
-  catch (err) {
-    console.log("Error fetching from the server: ", err);
-  }
-  finally {
-    return CommentsOfPost;
-  }
-
 };
 
 
+// FETCH COMMENTS OF A POST
 
-fatchAllPosts();
+const fetchAllCommentsOfPost = async (postId) => {
+  try {
+    const res = await fetch(`http://localhost:5000/getAllComments/${postId}`);
+    return await res.json();
+  } catch (err) {
+    console.log("Error fetching comments:", err);
+    return [];
+  }
+};
+
+fetchAllPosts();
