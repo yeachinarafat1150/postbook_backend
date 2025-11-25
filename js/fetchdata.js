@@ -1,3 +1,34 @@
+const showLoggedUsername = () =>{
+  const userNameElement = document.getElementById('logged-username');
+
+//find username from localstorage
+
+let user = localStorage.getItem('loggedInUser');
+if(user){
+  user = JSON.parse(user);
+}
+
+//show username in the webpage
+
+userNameElement.innerText = user.userName;
+
+};
+
+const checkLoggedInUser = () =>{
+  let user = localStorage.getItem('loggedInUser');
+if(user){
+  user=JSON.parse(user);
+}
+else{
+  window.location.href = "/index.html";
+}
+};
+
+const logOut = () =>{
+  //clearing the localstorage
+  localStorage.clear();
+  checkLoggedInUser();
+};
 
 const fetchAllPosts = async () => {
   try {
@@ -145,4 +176,7 @@ const fetchAllCommentsOfPost = async (postId) => {
   }
 };
 
+//this function automatically runs
 fetchAllPosts();
+
+showLoggedUsername();

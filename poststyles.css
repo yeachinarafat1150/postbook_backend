@@ -2,6 +2,28 @@
     font-family: "Inter", sans-serif;
 }
 
+.header{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.logoutBtn{
+    background-color: rgb(252, 5, 5);
+    color: rgb(247, 248, 248);
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.logoutBtn:hover{
+    background-color: rgb(192, 62, 62);
+    cursor: pointer;
+}
+
 #post-container{
 width: 80%;
 background-color: antiquewhite;
@@ -94,14 +116,14 @@ border-radius: 50%;
 .postCommen-input-field{
     padding: 10px;
     outline: none;
-    border: 1px solid gray;
+    border: 1px solid rgb(61, 58, 58);
     width: 80%;
 }
 
 .postComment-btn{
     padding: 10px;
-    background-color: rgb(83, 156, 216);
-    color: wheat;
+    background-color: rgb(49, 185, 248);
+    color: rgb(18, 19, 18);
     border: none;
     border-radius: 5px;
 
