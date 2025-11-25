@@ -139,6 +139,7 @@ const handlePostComment = async (postId) => {
 
   if (!commentText.trim()) return alert("Write something!");
 
+  //current time of comment
   let now = new Date();
   now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
   let commentTime = now.toISOString();
@@ -157,7 +158,7 @@ const handlePostComment = async (postId) => {
       body: JSON.stringify(commentObject),
     });
   } catch (err) {
-    console.log("Error posting comment:", err);
+    console.log("Error while sending data to the server:", err);
   } finally {
     location.reload();
   }
@@ -174,6 +175,53 @@ const fetchAllCommentsOfPost = async (postId) => {
     console.log("Error fetching comments:", err);
     return [];
   }
+};
+
+const handleAddNewPost =async () => {
+  
+  //getting user id from localstorage
+  let user = JSON.parse(localStorage.getItem("loggedInUser"));
+  if (!user) return alert("Login first!");
+
+  const postedUserId = user.userId;
+
+  //current time of post
+  let now = new Date();
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  let timeOfPost = now.toISOString();
+
+  //post text
+const postTextElement = document.getElementById('newPost-text');
+const postText = postTextElement.value;
+
+//post image
+
+const postImageElement = document.getElementById('newPost-image');
+const postImageUrl = postImageElement.value;
+
+//creating a post object
+
+const postObject ={
+  postedUserId : postedUserId,
+  postedTime : timeOfPost,
+  postedText :postText,
+  postedImageUrl:postImageUrl,
+};
+
+try {
+    await fetch("http://localhost:5000/addNewPost", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(postObject),
+    });
+  } catch (err) {
+    console.log("Error while sending data to the server: ", err);
+  } finally {
+    location.reload();
+  }
+
+// console.log("sending data to server:  ",postObject);
+
 };
 
 //this function automatically runs

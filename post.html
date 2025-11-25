@@ -20,6 +20,27 @@
         <button onclick="logOut()" class="logoutBtn">Logout</button>
     </div>
 
+    <section id="add-post-container">
+        <article>
+            <h2>Add New Post</h2>
+
+            <div>
+                <textarea name="" id="newPost-text" cols="30" rows="5" placeholder="Add post text"></textarea>
+            </div>
+
+            <div>
+                <input type="text" id="newPost-image" placeholder="Add post Image URL" />
+            </div>
+
+            <div>
+                <button onclick="handleAddNewPost()" class="addPost-btn">
+                    POST
+                </button>
+            </div>
+        </article>
+
+    </section>
+
     <section id="post-container">
         <!-- post -->
         <!-- 01 -->
@@ -103,18 +124,18 @@
         <!-- new comment input field -->
         <div class="postComment-holder">
 
-              <div class="post-comment-input-field-holder">
-                 <input type="text" placeholder="post your comment" class="postCommen-input-field"
+            <div class="post-comment-input-field-holder">
+                <input type="text" placeholder="post your comment" class="postCommen-input-field"
                     id="postComment-input-for-postId1">
-                  </div>
-                  <div class="comment-btn-holder">
-                  <button id="comment-btn" class="postComment-btn">
+            </div>
+            <div class="comment-btn-holder">
+                <button id="comment-btn" class="postComment-btn">
                     comment
                 </button>
             </div>
         </div>
 
-       
+
 
 
 

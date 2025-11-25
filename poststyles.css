@@ -1,9 +1,14 @@
 *{
     font-family: "Inter", sans-serif;
+    margin: 0%;
+    padding: 0%;
+}
+body {
+   
 }
 
 .header{
-    width: 90%;
+    width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -24,9 +29,39 @@
     cursor: pointer;
 }
 
+#add-post-container{
+    width: 90%;
+    margin:20px auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+#add-post-container article >h2{
+    color: #3aa6ff;
+}
+
+#newPost-text{
+    padding: 10px;
+    margin-bottom: 10px
+}
+
+#newPost-image{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+.addPost-btn{
+    margin-top: 10px;
+    padding: 15px 30px;
+    background-color: rgb(49, 185, 248);
+    border-radius: 10px;
+    color: #fff;
+    outline: none;
+    border: none;
+}
 #post-container{
 width: 80%;
-background-color: antiquewhite;
+ background-color: aliceblue;
 margin: 0 auto;
 display: flex;
 flex-direction: column;
@@ -72,7 +107,7 @@ border: 1px none;
     justify-content: center;
 }
 .post-image img{
-    width: 50%;
+    width: 100%;
     border-radius: 8px;
     margin: 15px;
 }
@@ -95,14 +130,12 @@ border-radius: 50%;
     border-radius: 20px;
 }
 
-.comment-text-container h4, p {
-    margin: 0;
+.comment-text-container h3 {
+    margin: 0px;
 }
-
-.comment-text-container h4{
-    margin-bottom: 3px;
+.comment-text-container p{
+    margin: 0px;
 }
-
 .postComment-holder{
     display: flex;
     gap: 9px;
@@ -111,6 +144,13 @@ border-radius: 50%;
 
 .post-comment-input-field-holder{
     width: 60%;
+}
+
+.post-comment-input-field-holder input{
+    width: 90%;
+    outline: none;
+    border-radius: 20px;
+    border: 1px solid #949494;
 }
 
 .postCommen-input-field{
@@ -123,8 +163,9 @@ border-radius: 50%;
 .postComment-btn{
     padding: 10px;
     background-color: rgb(49, 185, 248);
-    color: rgb(18, 19, 18);
+    color: rgb(255, 255, 255);
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
+
 
 }
