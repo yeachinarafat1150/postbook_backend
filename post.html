@@ -15,20 +15,22 @@
 </head>
 
 <body onload="checkLoggedInUser();" onload="showLoggedUsername(); ">
-    <div class="header">
-        <h1>Hello,<samp id="logged-username">Username</samp> </h1>
-        <button onclick="logOut()" class="logoutBtn">Logout</button>
+    <div class="top-navber">
+        <div class="header">
+            <h1>Hello,<samp id="logged-username">Username</samp> </h1>
+            <button onclick="logOut()" class="logoutBtn">Logout</button>
+        </div>
     </div>
 
     <section id="add-post-container">
         <article>
             <h2>Add New Post</h2>
 
-            <div>
+            <div class="text-area-input">
                 <textarea name="" id="newPost-text" cols="30" rows="5" placeholder="Add post text"></textarea>
             </div>
 
-            <div>
+            <div class="post-img-">
                 <input type="text" id="newPost-image" placeholder="Add post Image URL" />
             </div>
 

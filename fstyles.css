@@ -2,11 +2,19 @@
     font-family: "Inter", sans-serif;
 }
 
-
-
+h1{
+    text-align: center;
+    font-size: 50px;
+   
+}
+.web-title p{
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px;
+     margin-top: -25px;
+}
 .login-from{
     width: 80%;
- 
     margin:0 auto;
     display: flex;
     flex-direction: column;
@@ -14,7 +22,9 @@
 
 .login-from h3{
     text-align: center;
-    color: rgb(255, 188, 4);
+    color: #45abff;
+    font-size: 30px;
+    margin-bottom: 5px;
 }
 
 form{
@@ -27,23 +37,27 @@ form{
  
 input[type='text'], input[type='password']{
     padding: 10px;
+    border-radius: 5px;
 }
 
 
 .Login-buttton{
-    width: 9%;
-    padding: 6px;
-    background-color: rgb(24, 236, 5);
+    width: 10%;
+    padding: 10px 15px;
+    background-color: #008cff;
     color: rgb(249, 250, 250);
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 15px;
     margin: 0 auto;
     margin-bottom: 5px;
     
     
 }
-
+.Login-buttton:hover{
+    background-color: #45abff;
+    transition: 0.5s;
+}
 
 
 .registration-buttton{

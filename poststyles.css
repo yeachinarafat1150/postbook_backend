@@ -1,171 +1,198 @@
-*{
+* {
     font-family: "Inter", sans-serif;
     margin: 0%;
     padding: 0%;
 }
-body {
-   
-}
 
-.header{
+body {
+    background-color: #f8fbff;
+}
+.top-navber{
+    background-color: #f8fbff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+.header {
     width: 80%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
+    
 }
 
-.logoutBtn{
+.logoutBtn {
     background-color: rgb(252, 5, 5);
     color: rgb(247, 248, 248);
     border: none;
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 25px;
+    font-weight: 700;
 }
 
-.logoutBtn:hover{
+.logoutBtn:hover {
     background-color: rgb(192, 62, 62);
     cursor: pointer;
 }
 
-#add-post-container{
+#add-post-container {
     width: 90%;
-    margin:20px auto;
+    margin: 20px auto;
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-}
 
-#add-post-container article >h2{
+
+}
+.text-area-input{
+    display: flex;
+    justify-content: center;
+}
+.post-img-url-input{
+    display: flex;
+}
+#add-post-container article>h2 {
     color: #3aa6ff;
+    margin-bottom: 10px;
+    
+
 }
 
-#newPost-text{
-    padding: 10px;
-    margin-bottom: 10px
-}
-
-#newPost-image{
+#newPost-text {
     padding: 10px;
     margin-bottom: 10px;
+    border-radius: 20px;
 }
-.addPost-btn{
+
+#newPost-image {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+}
+
+.addPost-btn {
     margin-top: 10px;
     padding: 15px 30px;
     background-color: rgb(49, 185, 248);
-    border-radius: 10px;
+    border-radius: 25px;
     color: #fff;
     outline: none;
     border: none;
-}
-#post-container{
-width: 80%;
- background-color: aliceblue;
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center;
-border: 1px none;
 
 }
 
-.post{
-    width: 60%;
+.addPost-btn:hover {
+    background-color: #008cff;
+    transition: 0.5s;
+
+}
+
+#post-container {
+    width: 40%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px none;
+    border-radius: 30px;
+
+}
+
+.post {
+    width: 90%;
     padding: 15px;
-    border: 1px solid rgb(5, 5, 5);
-    border-radius: 15px;
+    /* border: 1px solid #74c0ff; */
+    border-radius: 10px;
     margin: 20px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.post-header{
+.post-header {
     display: flex;
     align-items: center;
     gap: 5px;
-    
+
 }
 
-.post-user-image img{
+.post-user-image img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
 
-.post-username{
+.post-username {
     margin: 0;
     font-size: 30px;
 }
 
-.posted-time{
+.posted-time {
     color: rgb(158, 158, 158);
     font-size: 11px;
 }
 
-.post-image{
+.post-image {
     display: flex;
     justify-content: center;
 }
-.post-image img{
+
+.post-image img {
     width: 100%;
     border-radius: 8px;
     margin: 15px;
 }
 
-.comment{
+.comment {
     display: flex;
     align-items: center;
     gap: 3px;
     margin-bottom: 9px;
 }
-.comment-user-image img{
-width: 40px;
-height: 40px;
-border-radius: 50%;
+
+.comment-user-image img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
 }
 
 .comment-text-container {
-    background-color: rgb(146, 192, 238);
-    padding: 10px;
+    background-color: #fff;
+    padding: 10px 15px;
     border-radius: 20px;
 }
 
 .comment-text-container h3 {
     margin: 0px;
 }
-.comment-text-container p{
+
+.comment-text-container p {
     margin: 0px;
+    font-weight: 500;
 }
-.postComment-holder{
+
+.postComment-holder {
     display: flex;
     gap: 9px;
     margin: 15px;
 }
 
-.post-comment-input-field-holder{
+.post-comment-input-field-holder {
     width: 60%;
 }
 
-.post-comment-input-field-holder input{
+.post-comment-input-field-holder input {
     width: 90%;
     outline: none;
     border-radius: 20px;
-    border: 1px solid #949494;
+    border: 1px solid #8cbeff;
 }
 
-.postCommen-input-field{
-    padding: 10px;
-    outline: none;
-    border: 1px solid rgb(61, 58, 58);
-    width: 80%;
-}
-
-.postComment-btn{
+.postComment-btn {
     padding: 10px;
     background-color: rgb(49, 185, 248);
     color: rgb(255, 255, 255);
     border: none;
     border-radius: 20px;
-
+    border: 1px solid #3e92ff;
 
 }
